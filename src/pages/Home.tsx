@@ -109,9 +109,11 @@ export default function Home() {
 
       {/* THE 700VH SCROLL TUNNEL GAP */}
       {/* This invisible space allows the user to scroll for a long time, driving the 3D Text Tunnel Animation! */}
-      <div style={{ height: '700vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ opacity: 0.2, fontSize: '14px', letterSpacing: '4px' }}>SCROLL — CAMERA TRAVELS THROUGH Z</p>
-      </div>
+      {!isMobile && (
+        <div style={{ height: '700vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <p style={{ opacity: 0.2, fontSize: '14px', letterSpacing: '4px' }}>SCROLL — CAMERA TRAVELS THROUGH Z</p>
+        </div>
+      )}
 
       {/* 01 ABOUT & PROFILE.JSON (MOVED BELOW THE TUNNEL) */}
       <div className="section intro-section animate-on-scroll" style={{ padding: '150px 40px', maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '80px', alignItems: 'flex-start' }}>

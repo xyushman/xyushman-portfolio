@@ -7,8 +7,11 @@ import CustomCursor from './components/CustomCursor';
 import CanvasBackground from './components/CanvasBackground';
 import GhostModel from './components/GhostModel';
 import Home from './pages/Home';
+import { useIsMobile } from './hooks/useIsMobile';
 
 function App() {
+  const isMobile = useIsMobile();
+  
   return (
     <Router>
       <CustomCursor />
@@ -23,7 +26,7 @@ function App() {
           
           <CanvasBackground />
           
-          <ScrollControls pages={15} damping={0.25}>
+          <ScrollControls pages={isMobile ? 8 : 15} damping={0.25}>
             <GhostModel />
             
             <Scroll html style={{ width: '100%' }}>

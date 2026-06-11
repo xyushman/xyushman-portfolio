@@ -2,6 +2,7 @@ import React, { useRef, Suspense, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useScroll, Float, Billboard, useTexture, useGLTF, Scroll, Text } from '@react-three/drei';
 import * as THREE from 'three';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 // --- TRUE 3D TEXT HERO ---
 function Hero3DText() {
@@ -9,6 +10,7 @@ function Hero3DText() {
   const scroll = useScroll();
   const textsRef = useRef<any[]>([]);
   const { viewport } = useThree();
+  const isMobile = useIsMobile();
 
   const setRef = (index: number) => (el: any) => {
     textsRef.current[index] = el;
@@ -70,6 +72,8 @@ function Hero3DText() {
   });
 
   const scale = Math.min(1, viewport.width / 15);
+
+  if (isMobile) return null;
 
   return (
     <group ref={group} scale={scale}>
@@ -194,6 +198,7 @@ export default function GhostModel() {
   const wireframe1 = useRef<THREE.Mesh>(null);
   const wireframe2 = useRef<THREE.Mesh>(null);
   const scroll = useScroll();
+  const isMobile = useIsMobile();
 
   useFrame((state, delta) => {
     if (wireframe1.current) {
@@ -209,8 +214,9 @@ export default function GhostModel() {
 
     // Move the ghost sprite left/right based on scroll offset!
     if (group.current) {
-      // Start on the right (6) and fly to the left (-8) exactly over the duration of the tunnel (up to 8/15)
-      const targetX = THREE.MathUtils.lerp(6, -8, r1 * (15/8)); 
+      // On desktop, map over the duration of the tunnel (up to 8/15). On mobile, map over the first 40% of the page.
+      const driftSpeed = isMobile ? 2.5 : (15/8);
+      const targetX = THREE.MathUtils.lerp(6, -8, r1 * driftSpeed); 
       const targetY = Math.sin(state.clock.elapsedTime) * 0.5 - 1; // gentle bobbing
       const targetZ = -4;
       
@@ -220,12 +226,13 @@ export default function GhostModel() {
     }
 
     // Move ALL decorations (ghost, ship, wireframes) UP and OFF-SCREEN 
-    // once we scroll past the 3D Tunnel (r1 > 8/15)
+    // once we scroll past the 3D Tunnel (r1 > 8/15 on desktop, r1 > 0.8 on mobile)
     if (decorationsGroup.current) {
       let targetDecorY = 0;
-      if (r1 > 8/15) {
+      const flyUpThreshold = isMobile ? 0.8 : (8/15);
+      if (r1 > flyUpThreshold) {
         // Fly up 20 units into the sky
-        targetDecorY = THREE.MathUtils.lerp(0, 20, Math.min((r1 - 8/15) / 0.1, 1));
+        targetDecorY = THREE.MathUtils.lerp(0, 20, Math.min((r1 - flyUpThreshold) / 0.1, 1));
       }
       decorationsGroup.current.position.y = THREE.MathUtils.damp(decorationsGroup.current.position.y, targetDecorY, 4, delta);
     }
