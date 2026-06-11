@@ -34,8 +34,10 @@ const Typewriter = ({ roles }: { roles: string[] }) => {
 };
 
 import { WaveText } from '../components/WaveText';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function Home() {
+  const isMobile = useIsMobile();
   const horizontalRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   const xTransform = useTransform(scrollYProgress, [0.4, 0.6], ['0%', '-60%']);
