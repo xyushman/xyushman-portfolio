@@ -4,7 +4,7 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 
 export default function CanvasBackground(props: any) {
-  const ref = useRef<any>();
+  const ref = useRef<any>(null);
   const sphere = random.inSphere(new Float32Array(3000), { radius: 4 });
 
   useFrame((state, delta) => {

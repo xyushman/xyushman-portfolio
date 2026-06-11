@@ -42,7 +42,7 @@ function Hero3DText() {
     // Apply distance-based fading
     textsRef.current.forEach((textMesh) => {
       if (!textMesh) return;
-      const worldZ = group.current.position.z + textMesh.position.z;
+      const worldZ = (group.current?.position.z || 0) + textMesh.position.z;
       const dist = 8 - worldZ; // Camera is at Z=8
 
       // Fade in from distance (starts fading in at 40 units away, fully bright at 20)
@@ -201,10 +201,10 @@ export default function GhostModel() {
 
     const r1 = scroll.offset;
 
-    // Move the ghost sprite slightly based on mouse or scroll if desired, 
-    // but keep it on the right side so it doesn't block the tunnel
+    // Move the ghost sprite left/right based on scroll offset!
     if (group.current) {
-      const targetX = 5;
+      // Start on the right (6) and fly to the left (-8) as the user scrolls
+      const targetX = THREE.MathUtils.lerp(6, -8, r1 * 2.5); 
       const targetY = Math.sin(state.clock.elapsedTime) * 0.5 - 1; // gentle bobbing
       const targetZ = -4;
       
