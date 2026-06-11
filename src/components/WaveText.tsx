@@ -5,7 +5,7 @@ export const WaveText = ({ lines, style }: { lines: string[], style?: React.CSSP
   let wordIndex = 0;
 
   return (
-    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '4.5rem', lineHeight: '1.1', marginBottom: '40px', ...style }}>
+    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 6vw, 4.5rem)', lineHeight: '1.1', marginBottom: '40px', ...style }}>
       {lines.map((line, lineIndex) => {
         const words = line.split(" ");
         return (

@@ -1,5 +1,5 @@
 import React, { useRef, Suspense, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useScroll, Float, Billboard, useTexture, useGLTF, Scroll, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -8,6 +8,7 @@ function Hero3DText() {
   const group = useRef<THREE.Group>(null);
   const scroll = useScroll();
   const textsRef = useRef<any[]>([]);
+  const { viewport } = useThree();
 
   const setRef = (index: number) => (el: any) => {
     textsRef.current[index] = el;
@@ -16,12 +17,12 @@ function Hero3DText() {
   useFrame((state, delta) => {
     if (!group.current) return;
     
-    const r1 = scroll.offset; 
+    const r1 = scroll.offset;
     
-    // The tunnel uses the 300vh gap, which starts after the 100vh Hero.
-    // With pages=10, the Hero is r1=0.1. The 300vh gap ends at r1=0.4.
-    // So we map r1 from 0.1 to 0.4 into a 0 to 1 progress value.
-    let progress = Math.max(0, Math.min((r1 - 0.1) / 0.3, 1));
+    // The tunnel uses the 700vh gap, which starts after the 100vh Hero.
+    // With pages=15, the Hero is r1 = 1/15. The 700vh gap is 7/15.
+    // So we map r1 from 1/15 to 8/15 into a 0 to 1 progress value.
+    let progress = Math.max(0, Math.min((r1 - (1/15)) / (7/15), 1));
     
     // Target Z position based on scroll: flies from 0 to 160
     const targetZ = THREE.MathUtils.lerp(0, 160, progress);
@@ -68,8 +69,10 @@ function Hero3DText() {
     });
   });
 
+  const scale = Math.min(1, viewport.width / 15);
+
   return (
-    <group ref={group}>
+    <group ref={group} scale={scale}>
       {/* 1. ENGINEER (Center) */}
       <Text ref={setRef(0)} position={[0, 0, -40]} fontSize={4.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800}>
         ENGINEER
@@ -91,7 +94,7 @@ function Hero3DText() {
       </Text>
 
       {/* 5. SCALABLE (Right Bottom, larger) */}
-      <Text ref={setRef(4)} position={[3, -2, -100]} fontSize={5} color="#d9663f" fillOpacity={0} strokeWidth={0.01} strokeColor="#d9663f">
+      <Text ref={setRef(4)} position={[3, -2, -100]} fontSize={3.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800}>
         SCALABLE
       </Text>
 
@@ -101,12 +104,12 @@ function Hero3DText() {
       </Text>
       
       {/* 7. SOLUTION (Right Bottom) */}
-      <Text ref={setRef(6)} position={[3, -2, -130]} fontSize={5} color="#ffffff">
+      <Text ref={setRef(6)} position={[3, -2, -130]} fontSize={3} color="#ffffff">
         SOLUTION
       </Text>
 
       {/* 8. Full Stack + Cloud + AI (Center) */}
-      <Text ref={setRef(7)} position={[0, 0, -145]} fontSize={2.5} color="#d9663f" fillOpacity={0} strokeWidth={0.015} strokeColor="#d9663f" fontWeight={800} letterSpacing={0.05}>
+      <Text ref={setRef(7)} position={[0, 0, -145]} fontSize={1.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800} letterSpacing={0.05}>
         Full Stack + Cloud + AI
       </Text>
     </group>
@@ -116,9 +119,12 @@ function Hero3DText() {
 // --- GHOST SPRITE ---
 function GhostSprite() {
   const texture = useTexture('/ghost.svg');
+  const { viewport } = useThree();
+  const scale = Math.min(1, viewport.width / 10);
+  
   return (
     <Billboard follow={true} lockX={false} lockY={false} lockZ={false}>
-      <mesh>
+      <mesh scale={scale}>
         <planeGeometry args={[3, 3]} />
         <meshBasicMaterial map={texture} transparent={true} depthWrite={false} />
       </mesh>
@@ -203,8 +209,8 @@ export default function GhostModel() {
 
     // Move the ghost sprite left/right based on scroll offset!
     if (group.current) {
-      // Start on the right (6) and fly to the left (-8) as the user scrolls
-      const targetX = THREE.MathUtils.lerp(6, -8, r1 * 2.5); 
+      // Start on the right (6) and fly to the left (-8) exactly over the duration of the tunnel (up to 8/15)
+      const targetX = THREE.MathUtils.lerp(6, -8, r1 * (15/8)); 
       const targetY = Math.sin(state.clock.elapsedTime) * 0.5 - 1; // gentle bobbing
       const targetZ = -4;
       
@@ -214,12 +220,12 @@ export default function GhostModel() {
     }
 
     // Move ALL decorations (ghost, ship, wireframes) UP and OFF-SCREEN 
-    // once we scroll past the 3D Tunnel (r1 > 0.35)
+    // once we scroll past the 3D Tunnel (r1 > 8/15)
     if (decorationsGroup.current) {
       let targetDecorY = 0;
-      if (r1 > 0.35) {
+      if (r1 > 8/15) {
         // Fly up 20 units into the sky
-        targetDecorY = THREE.MathUtils.lerp(0, 20, Math.min((r1 - 0.35) / 0.1, 1));
+        targetDecorY = THREE.MathUtils.lerp(0, 20, Math.min((r1 - 8/15) / 0.1, 1));
       }
       decorationsGroup.current.position.y = THREE.MathUtils.damp(decorationsGroup.current.position.y, targetDecorY, 4, delta);
     }

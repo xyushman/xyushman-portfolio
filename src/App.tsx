@@ -23,7 +23,7 @@ function App() {
           
           <CanvasBackground />
           
-          <ScrollControls pages={10} damping={0.25}>
+          <ScrollControls pages={15} damping={0.25}>
             <GhostModel />
             
             <Scroll html style={{ width: '100%' }}>

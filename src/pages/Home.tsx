@@ -107,9 +107,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* THE 300VH SCROLL TUNNEL GAP */}
+      {/* THE 700VH SCROLL TUNNEL GAP */}
       {/* This invisible space allows the user to scroll for a long time, driving the 3D Text Tunnel Animation! */}
-      <div style={{ height: '300vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ height: '700vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ opacity: 0.2, fontSize: '14px', letterSpacing: '4px' }}>SCROLL — CAMERA TRAVELS THROUGH Z</p>
       </div>
 

@@ -64,13 +64,13 @@ export const ToolkitNetwork = () => {
   }, [activeNodes, activeCategory]);
 
   return (
-    <div className="section animate-on-scroll" style={{ padding: '150px 40px', maxWidth: '1400px', margin: '0 auto' }}>
+    <div className="section animate-on-scroll" style={{ padding: 'clamp(80px, 15vw, 150px) clamp(15px, 4vw, 40px)', maxWidth: '1400px', margin: '0 auto' }}>
       
       {/* Title */}
       <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#d9663f', letterSpacing: '0.1em', marginBottom: '20px' }}>
         03 <span style={{ color: 'var(--text-muted)' }}>/ TOOLKIT</span>
       </h2>
-      <WaveText lines={["The Neural Network."]} style={{ fontSize: '5rem', marginBottom: '60px' }} />
+      <WaveText lines={["The Neural Network."]} style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', marginBottom: 'clamp(30px, 6vw, 60px)' }} />
 
       {/* Filters */}
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '40px' }}>
@@ -110,7 +110,7 @@ export const ToolkitNetwork = () => {
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        style={{ position: 'relative', height: '600px', width: '100%', backgroundColor: 'rgba(0,0,0,0.2)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden', perspective: '1200px' }}
+        style={{ position: 'relative', height: 'clamp(400px, 60vh, 600px)', width: '100%', backgroundColor: 'rgba(0,0,0,0.2)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden', perspective: '1200px' }}
       >
         <motion.div
           style={{
