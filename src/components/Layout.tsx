@@ -10,8 +10,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="nav-links" style={{ display: 'flex', gap: '24px', flexDirection: 'column', alignItems: 'flex-end' }}>
           <a href="#contact" className="nav-link" style={{ fontSize: '0.85rem' }}>Contact</a>
-          <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>Resume</a>
-          <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>GitHub</a>
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="nav-link" style={{ fontSize: '0.85rem' }}>Resume</a>
+          <a href="https://github.com/xyushman" target="_blank" rel="noreferrer" className="nav-link" style={{ fontSize: '0.85rem' }}>GitHub</a>
         </div>
       </nav>
 

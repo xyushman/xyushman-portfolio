@@ -91,7 +91,7 @@ export default function Home() {
             <a href="#contact" style={{ border: '1px solid rgba(255,255,255,0.3)', color: '#fff', padding: '16px 32px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', display: 'inline-flex', alignItems: 'center' }}>
               GET IN TOUCH
             </a>
-            <a href="https://drive.google.com/file/d/1TkHYwEwGBYYg9fQqaEw_xhX9SygcjtAx/view?usp=sharing" target="_blank" rel="noreferrer" style={{ color: '#fff', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', opacity: 0.7, marginLeft: '20px' }}>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" style={{ color: '#fff', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', opacity: 0.7, marginLeft: '20px' }}>
               RESUME ↓
             </a>
           </div>
