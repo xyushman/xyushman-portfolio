@@ -21,10 +21,9 @@ function Hero3DText() {
     
     const r1 = scroll.offset;
     
-    // The tunnel uses the 700vh gap, which starts after the 100vh Hero.
-    // With pages=15, the Hero is r1 = 1/15. The 700vh gap is 7/15.
-    // So we map r1 from 1/15 to 8/15 into a 0 to 1 progress value.
-    let progress = Math.max(0, Math.min((r1 - (1/15)) / (7/15), 1));
+    // With pages=20, the Hero is r1 = 1/20. The 1200vh gap is 12/20.
+    // So we map r1 from 1/20 to 13/20 into a 0 to 1 progress value.
+    let progress = Math.max(0, Math.min((r1 - (1/20)) / (12/20), 1));
     
     // Target Z position based on scroll: flies from 0 to 160
     const targetZ = THREE.MathUtils.lerp(0, 160, progress);
@@ -39,7 +38,8 @@ function Hero3DText() {
     }
     
     // Smooth damping for the hyperspace travel and rise
-    group.current.position.z = THREE.MathUtils.damp(group.current.position.z, targetZ, 3, delta);
+    // Lowered damp factor from 3 to 1 to make the Z-travel glide smoothly and prevent 4-5 texts from passing in one flick
+    group.current.position.z = THREE.MathUtils.damp(group.current.position.z, targetZ, 1.2, delta);
     group.current.position.y = THREE.MathUtils.damp(group.current.position.y, targetY, 3, delta);
 
     // Apply distance-based fading
@@ -214,8 +214,8 @@ export default function GhostModel() {
 
     // Move the ghost sprite left/right based on scroll offset!
     if (group.current) {
-      // On desktop, map over the duration of the tunnel (up to 8/15). On mobile, map over the first 40% of the page.
-      const driftSpeed = isMobile ? 2.5 : (15/8);
+      // On desktop, map over the duration of the tunnel (up to 13/20). On mobile, map over the first 40% of the page.
+      const driftSpeed = isMobile ? 2.5 : (20/13);
       const targetX = THREE.MathUtils.lerp(6, -8, r1 * driftSpeed); 
       const targetY = Math.sin(state.clock.elapsedTime) * 0.5 - 1; // gentle bobbing
       const targetZ = -4;
@@ -226,10 +226,10 @@ export default function GhostModel() {
     }
 
     // Move ALL decorations (ghost, ship, wireframes) UP and OFF-SCREEN 
-    // once we scroll past the 3D Tunnel (r1 > 8/15 on desktop, r1 > 0.8 on mobile)
+    // once we scroll past the 3D Tunnel (r1 > 13/20 on desktop, r1 > 0.8 on mobile)
     if (decorationsGroup.current) {
       let targetDecorY = 0;
-      const flyUpThreshold = isMobile ? 0.8 : (8/15);
+      const flyUpThreshold = isMobile ? 0.8 : (13/20);
       if (r1 > flyUpThreshold) {
         // Fly up 20 units into the sky
         targetDecorY = THREE.MathUtils.lerp(0, 20, Math.min((r1 - flyUpThreshold) / 0.1, 1));

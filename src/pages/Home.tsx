@@ -34,13 +34,11 @@ const Typewriter = ({ roles }: { roles: string[] }) => {
 };
 
 import { WaveText } from '../components/WaveText';
+import { SelectedWork } from '../components/SelectedWork';
 import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function Home() {
   const isMobile = useIsMobile();
-  const horizontalRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll();
-  const xTransform = useTransform(scrollYProgress, [0.4, 0.6], ['0%', '-60%']);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -109,10 +107,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* THE 700VH SCROLL TUNNEL GAP */}
+      {/* THE 1200VH SCROLL TUNNEL GAP */}
       {/* This invisible space allows the user to scroll for a long time, driving the 3D Text Tunnel Animation! */}
       {!isMobile && (
-        <div style={{ height: '700vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ height: '1200vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <p style={{ opacity: 0.2, fontSize: '14px', letterSpacing: '4px' }}>SCROLL — CAMERA TRAVELS THROUGH Z</p>
         </div>
       )}
@@ -181,7 +179,7 @@ export default function Home() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-dim)', letterSpacing: '0.1em' }}>STATUS</span>
-                <span style={{ color: '#fff', textAlign: 'right', maxWidth: '250px' }}>Open to full-stack roles · internships · freelance</span>
+                <span style={{ color: '#fff', textAlign: 'right', maxWidth: '300px' }}>Open to DevOps & Cloud SRE roles · Internships · Freelance</span>
               </div>
             </div>
           </div>
@@ -335,22 +333,8 @@ export default function Home() {
       {/* 03 TOOLKIT NETWORK */}
       <ToolkitNetwork />
 
-      {/* 04 SELECTED WORK (HORIZONTAL SCROLL) */}
-      <div style={{ height: '300vh' }}>
-        <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-          <h2 style={{ position: 'absolute', top: '40px', left: '40px', fontSize: '24px', opacity: 0.5 }}>03 / SELECTED WORK</h2>
-          <motion.div style={{ display: 'flex', gap: '50px', padding: '0 40px', x: xTransform }}>
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} style={{ width: '60vw', height: '60vh', flexShrink: 0, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'flex-end', padding: '40px' }}>
-                <div>
-                  <div style={{ fontSize: '14px', opacity: 0.5, marginBottom: '10px' }}>PROJECT 0{i}</div>
-                  <h3 style={{ fontSize: '4vw', margin: 0, lineHeight: 1 }}>AUTO-SCALING ARCHITECTURE</h3>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
+      {/* 04 SELECTED WORK */}
+      <SelectedWork />
 
       {/* 08 CONTACT */}
       <div className="section animate-on-scroll" style={{ padding: '200px 40px', textAlign: 'center' }}>
