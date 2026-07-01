@@ -30,7 +30,7 @@ const Typewriter = ({ roles }: { roles: string[] }) => {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, roleIndex, roles]);
 
-  return <span>{text}<span style={{ borderRight: '2px solid #d9663f', animation: 'blink 1s step-end infinite' }}>&nbsp;</span></span>;
+  return <span>{text}<span style={{ borderRight: '2px solid #DBFF00', animation: 'blink 1s step-end infinite' }}>&nbsp;</span></span>;
 };
 
 import { WaveText } from '../components/WaveText';
@@ -73,7 +73,7 @@ export default function Home() {
       {/* NEW 100VH HERO WITH TYPEWRITER */}
       <div className="hero-section" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 40px' }}>
         <h1 style={{ fontSize: '5vw', margin: 0, fontWeight: 800 }}>Hi, I'm Ayushman</h1>
-        <h2 style={{ fontSize: '3vw', color: '#d9663f', margin: 0, marginTop: '20px', fontFamily: 'var(--font-mono)' }}>
+        <h2 style={{ fontSize: '3vw', color: '#DBFF00', margin: 0, marginTop: '20px', fontFamily: 'var(--font-mono)' }}>
           - <Typewriter roles={['Cloud', 'DevOps', 'Full Stack', 'AI Builder', 'Competitive Programmer']} />
         </h2>
 
@@ -85,7 +85,7 @@ export default function Home() {
         <div style={{ marginTop: '60px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {/* Top Row: Main Actions */}
           <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
-            <a href="#projects" style={{ backgroundColor: '#d9663f', color: '#000', padding: '16px 32px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+            <a href="#projects" style={{ backgroundColor: '#DBFF00', color: '#000', padding: '16px 32px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
               VIEW PROJECTS <span style={{ fontSize: '1.2rem', lineHeight: 0 }}>→</span>
             </a>
             <a href="#contact" style={{ border: '1px solid rgba(255,255,255,0.3)', color: '#fff', padding: '16px 32px', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', letterSpacing: '0.2em', display: 'inline-flex', alignItems: 'center' }}>
@@ -120,7 +120,7 @@ export default function Home() {
 
         {/* LEFT COLUMN: Narrative */}
         <div>
-          <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#d9663f', letterSpacing: '0.1em', marginBottom: '40px' }}>
+          <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#DBFF00', letterSpacing: '0.1em', marginBottom: '40px' }}>
             01 <span style={{ color: 'var(--text-muted)' }}>/ THE_GHOST_IN_THE_SHELL</span>
           </h2>
 
@@ -142,8 +142,8 @@ export default function Home() {
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.1em', color: '#d9663f', display: 'flex', alignItems: 'center', gap: '10px', marginRight: '10px' }}>
-              <span style={{ width: '20px', height: '1px', backgroundColor: '#d9663f' }}></span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.1em', color: '#DBFF00', display: 'flex', alignItems: 'center', gap: '10px', marginRight: '10px' }}>
+              <span style={{ width: '20px', height: '1px', backgroundColor: '#DBFF00' }}></span>
               CURRENTLY INTO
             </span>
             {['CLOUD NATIVE', 'DEVOPS', 'FULL-STACK', 'AI BUILDER', 'COMPETITIVE PROGRAMMING'].map(tag => (
@@ -161,7 +161,7 @@ export default function Home() {
           <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '40px', backgroundColor: 'rgba(255,255,255,0.02)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '20px', marginBottom: '30px' }}>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.2em', color: 'var(--text-muted)' }}>PROFILE.JSON</span>
-              <span style={{ width: '8px', height: '8px', backgroundColor: '#d9663f', borderRadius: '50%' }}></span>
+              <span style={{ width: '8px', height: '8px', backgroundColor: '#DBFF00', borderRadius: '50%' }}></span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontFamily: 'var(--font-mono)', fontSize: '0.9rem' }}>
@@ -208,7 +208,7 @@ export default function Home() {
 
       {/* 02 EXPERIENCE & EDUCATION */}
       <div className="section experience-section animate-on-scroll" style={{ padding: '150px 40px', maxWidth: '1400px', margin: '0 auto' }}>
-        <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#d9663f', letterSpacing: '0.1em', marginBottom: '40px' }}>
+        <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#DBFF00', letterSpacing: '0.1em', marginBottom: '40px' }}>
           02 <span style={{ color: 'var(--text-muted)' }}>/ EXPERIENCE · EDUCATION</span>
         </h2>
         
@@ -221,7 +221,7 @@ export default function Home() {
           
           {/* LEFT LARGE CARD: FOSSEE */}
           <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '40px', backgroundColor: 'rgba(255,255,255,0.02)', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#d9663f', marginBottom: '30px', textTransform: 'uppercase' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#DBFF00', marginBottom: '30px', textTransform: 'uppercase' }}>
               <span>• LIVE · REMOTE · INDIA</span>
               <span style={{ color: 'var(--text-dim)', textAlign: 'right' }}>MAY 2026<br/>— JULY 2026</span>
             </div>
@@ -239,15 +239,15 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6', flex: 1 }}>
               <div style={{ display: 'flex', gap: '15px' }}>
-                <span style={{ color: '#d9663f' }}>—</span>
+                <span style={{ color: '#DBFF00' }}>—</span>
                 <span>Engineered the core web application for 3psLCCA, building a modern, responsive React and Vite architecture with interactive D3.js data visualizations.</span>
               </div>
               <div style={{ display: 'flex', gap: '15px' }}>
-                <span style={{ color: '#d9663f' }}>—</span>
+                <span style={{ color: '#DBFF00' }}>—</span>
                 <span>Implemented dynamic data rendering, interactive charts with Recharts, and automated PDF report generation directly in the browser using jsPDF.</span>
               </div>
               <div style={{ display: 'flex', gap: '15px' }}>
-                <span style={{ color: '#d9663f' }}>—</span>
+                <span style={{ color: '#DBFF00' }}>—</span>
                 <span>Streamlined deployment pipelines using Docker and AWS, establishing a robust CI/CD workflow that reduced downtime and enabled rapid iteration.</span>
               </div>
             </div>
@@ -264,7 +264,7 @@ export default function Home() {
             
             {/* RIGHT TOP CARD: Freelance / Prior */}
             <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '40px', backgroundColor: 'rgba(255,255,255,0.02)', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#d9663f', marginBottom: '30px', textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#DBFF00', marginBottom: '30px', textTransform: 'uppercase' }}>
                 PRIOR · INDEPENDENT
               </div>
               
@@ -291,7 +291,7 @@ export default function Home() {
 
             {/* RIGHT BOTTOM CARD: Education */}
             <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '40px', backgroundColor: 'rgba(255,255,255,0.02)' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#d9663f', marginBottom: '30px', textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: '#DBFF00', marginBottom: '30px', textTransform: 'uppercase' }}>
                 EDUCATION
               </div>
               

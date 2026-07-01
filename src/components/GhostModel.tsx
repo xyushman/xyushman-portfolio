@@ -78,7 +78,7 @@ function Hero3DText() {
   return (
     <group ref={group} scale={scale}>
       {/* 1. ENGINEER (Center) */}
-      <Text ref={setRef(0)} position={[0, 0, -40]} fontSize={4.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800}>
+      <Text ref={setRef(0)} position={[0, 0, -40]} fontSize={4.5} color="#DBFF00" fillOpacity={0} strokeWidth={0.02} strokeColor="#DBFF00" fontWeight={800}>
         ENGINEER
       </Text>
 
@@ -88,7 +88,7 @@ function Hero3DText() {
       </Text>
 
       {/* 3. DEVELOPER (Right Bottom, slightly larger) */}
-      <Text ref={setRef(2)} position={[3, -2, -70]} fontSize={5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800}>
+      <Text ref={setRef(2)} position={[3, -2, -70]} fontSize={5} color="#DBFF00" fillOpacity={0} strokeWidth={0.02} strokeColor="#DBFF00" fontWeight={800}>
         DEVELOPER
       </Text>
 
@@ -98,7 +98,7 @@ function Hero3DText() {
       </Text>
 
       {/* 5. SCALABLE (Right Bottom, larger) */}
-      <Text ref={setRef(4)} position={[3, -2, -100]} fontSize={3.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800}>
+      <Text ref={setRef(4)} position={[3, -2, -100]} fontSize={3.5} color="#DBFF00" fillOpacity={0} strokeWidth={0.02} strokeColor="#DBFF00" fontWeight={800}>
         SCALABLE
       </Text>
 
@@ -113,7 +113,7 @@ function Hero3DText() {
       </Text>
 
       {/* 8. Full Stack + Cloud + AI (Center) */}
-      <Text ref={setRef(7)} position={[0, 0, -145]} fontSize={1.5} color="#d9663f" fillOpacity={0} strokeWidth={0.02} strokeColor="#d9663f" fontWeight={800} letterSpacing={0.05}>
+      <Text ref={setRef(7)} position={[0, 0, -145]} fontSize={1.5} color="#DBFF00" fillOpacity={0} strokeWidth={0.02} strokeColor="#DBFF00" fontWeight={800} letterSpacing={0.05}>
         Full Stack + Cloud + AI
       </Text>
     </group>

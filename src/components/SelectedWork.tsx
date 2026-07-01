@@ -31,12 +31,12 @@ const FEATURED_PROJECTS: ProjectData[] = [
     icon: <ShieldCheck size={20} />,
     schematicType: 'cicd',
     bullets: [
-      <>Eliminated manual deployment risk by building a <strong style={{ color: '#fff', fontWeight: 600 }}>full Jenkins CI/CD pipeline</strong> that containerises a Next.js app with <strong style={{ color: '#fff', fontWeight: 600 }}>Docker</strong> and deploys to <strong style={{ color: '#fff', fontWeight: 600 }}>Amazon EKS</strong>, reducing deployment to a <strong style={{ color: '#d9663f', fontWeight: 600 }}>single automated trigger</strong> via Jenkinsfile-driven GitOps.</>,
+      <>Eliminated manual deployment risk by building a <strong style={{ color: '#fff', fontWeight: 600 }}>full Jenkins CI/CD pipeline</strong> that containerises a Next.js app with <strong style={{ color: '#fff', fontWeight: 600 }}>Docker</strong> and deploys to <strong style={{ color: '#fff', fontWeight: 600 }}>Amazon EKS</strong>, reducing deployment to a <strong style={{ color: '#DBFF00', fontWeight: 600 }}>single automated trigger</strong> via Jenkinsfile-driven GitOps.</>,
       <>Hardened the pipeline with <strong style={{ color: '#fff', fontWeight: 600 }}>Trivy</strong> image scanning, <strong style={{ color: '#fff', fontWeight: 600 }}>SonarQube SAST</strong>, and <strong style={{ color: '#fff', fontWeight: 600 }}>OWASP</strong> dependency checks at every stage, then surfaced cluster health through <strong style={{ color: '#fff', fontWeight: 600 }}>Prometheus + Grafana</strong> dashboards for real-time observability.</>
     ],
     tags: ['Jenkins', 'Docker', 'Amazon EKS', 'GitOps', 'Trivy', 'SonarQube', 'OWASP', 'Prometheus', 'Grafana', 'Next.js'],
     githubUrl: 'https://github.com/xyushman',
-    accentColor: '#d9663f'
+    accentColor: '#DBFF00'
   },
   {
     id: 'alchemyst',
@@ -124,7 +124,7 @@ const CyberSchematic: React.FC<{ type: ProjectData['schematicType']; accentColor
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
           {['GIT COMMIT', 'JENKINS BUILD', 'TRIVY SCAN', 'SONARQUBE SAST', 'EKS DEPLOY'].map((step, i) => (
             <React.Fragment key={step}>
-              <div style={{ background: 'rgba(217, 102, 63, 0.15)', border: `1px solid ${accentColor}`, padding: '6px 10px', borderRadius: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ background: 'rgba(219, 255, 0, 0.15)', border: `1px solid ${accentColor}`, padding: '6px 10px', borderRadius: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <CheckCircle2 size={12} color={accentColor} /> <span>{step}</span>
               </div>
               {i < 4 && <span style={{ color: 'var(--text-dim)' }}>→</span>}
@@ -360,8 +360,8 @@ export const SelectedWork: React.FC = () => {
         height: isMobile ? '80vh' : '75vh',
         flexShrink: 0,
         background: 'rgba(10, 10, 10, 0.95)',
-        border: '2px solid #d9663f',
-        boxShadow: '0 0 45px rgba(217, 102, 63, 0.3)',
+        border: '2px solid #DBFF00',
+        boxShadow: '0 0 45px rgba(219, 255, 0, 0.3)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -378,7 +378,7 @@ export const SelectedWork: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', zIndex: 20 }}>
         <div style={{ textAlign: 'left', lineHeight: 1.4 }}>
           <div style={{ color: '#fff', letterSpacing: '0.1em', fontWeight: 700 }}>DATABASE_ACCESS</div>
-          <div style={{ color: '#d9663f' }}>[LOCKED]</div>
+          <div style={{ color: '#DBFF00' }}>[LOCKED]</div>
         </div>
         <div className="status-dot" />
       </div>
@@ -387,7 +387,7 @@ export const SelectedWork: React.FC = () => {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 20, marginTop: 'auto', marginBottom: 'auto' }}>
         <div className="archive-core" style={{ marginBottom: '28px' }}>
           <div className="core-ring" />
-          <Package size={42} color="#d9663f" />
+          <Package size={42} color="#DBFF00" />
         </div>
 
         <h3 className="glitch-text" style={{ fontFamily: 'var(--font-sans)', fontSize: isMobile ? '3.8rem' : '6rem', fontWeight: 800, color: '#fff', margin: 0, marginBottom: '14px', letterSpacing: '0.04em' }}>
@@ -400,7 +400,7 @@ export const SelectedWork: React.FC = () => {
       </div>
 
       {/* Bottom Action Footer */}
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#d9663f', letterSpacing: '0.2em', zIndex: 20, textAlign: 'center', width: '100%' }}>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#DBFF00', letterSpacing: '0.2em', zIndex: 20, textAlign: 'center', width: '100%' }}>
         {showMore ? 'SCROLL DOWN TO VIEW PRODUCTION BUILDS ↓' : 'CLICK TO INITIALIZE NEXT BATCH →'}
       </div>
     </div>
@@ -414,7 +414,7 @@ export const SelectedWork: React.FC = () => {
           /* Mobile direct stacked layout with Kavy Porwal aesthetic */
           <div style={{ padding: '80px 20px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
             <div style={{ marginBottom: '20px' }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: '#d9663f', letterSpacing: '0.15em' }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: '#DBFF00', letterSpacing: '0.15em' }}>
                 04 // SELECTED WORKS
               </h2>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '2.2rem', fontStyle: 'italic', color: '#fff', margin: '8px 0 0 0' }}>
@@ -454,7 +454,7 @@ export const SelectedWork: React.FC = () => {
 
             {/* Section Title Background Header */}
             <div style={{ position: 'absolute', top: '20px', left: '60px', zIndex: 10 }}>
-              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: '#d9663f', letterSpacing: '0.2em', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: '#DBFF00', letterSpacing: '0.2em', margin: 0 }}>
                 04 // SELECTED WORKS
               </h2>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', fontStyle: 'italic', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
@@ -480,7 +480,7 @@ export const SelectedWork: React.FC = () => {
             {/* Helper Pan Indicator */}
             <div style={{ position: 'absolute', bottom: '30px', left: '60px', display: 'flex', alignItems: 'center', gap: '12px', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-dim)', letterSpacing: '0.15em', zIndex: 10 }}>
               <span>SCROLL DOWN TO PAN ACROSS GALLERY</span>
-              <span style={{ color: '#d9663f' }}>→</span>
+              <span style={{ color: '#DBFF00' }}>→</span>
             </div>
           </div>
         )}
@@ -498,7 +498,7 @@ export const SelectedWork: React.FC = () => {
             style={{ padding: '100px 60px', maxWidth: '1400px', margin: '0 auto' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.15)', paddingBottom: '20px', marginBottom: '60px', flexWrap: 'wrap', gap: '10px' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: '#d9663f', letterSpacing: '0.2em' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: '#DBFF00', letterSpacing: '0.2em' }}>
                 NEXT BATCH // SHIPPED PRODUCTION BUILDS
               </span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--text-dim)' }}>

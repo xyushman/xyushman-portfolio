@@ -67,7 +67,7 @@ export const ToolkitNetwork = () => {
     <div className="section animate-on-scroll" style={{ padding: 'clamp(80px, 15vw, 150px) clamp(15px, 4vw, 40px)', maxWidth: '1400px', margin: '0 auto' }}>
       
       {/* Title */}
-      <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#d9663f', letterSpacing: '0.1em', marginBottom: '20px' }}>
+      <h2 style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: '#DBFF00', letterSpacing: '0.1em', marginBottom: '20px' }}>
         03 <span style={{ color: 'var(--text-muted)' }}>/ TOOLKIT</span>
       </h2>
       <WaveText lines={["The Neural Network."]} style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', marginBottom: 'clamp(30px, 6vw, 60px)' }} />
@@ -77,9 +77,9 @@ export const ToolkitNetwork = () => {
         <button 
           onClick={() => setActiveCategory('ALL')}
           style={{ 
-            backgroundColor: activeCategory === 'ALL' ? '#d9663f' : 'transparent',
+            backgroundColor: activeCategory === 'ALL' ? '#DBFF00' : 'transparent',
             color: activeCategory === 'ALL' ? '#000' : 'var(--text-muted)',
-            border: activeCategory === 'ALL' ? '1px solid #d9663f' : '1px solid rgba(255,255,255,0.1)',
+            border: activeCategory === 'ALL' ? '1px solid #DBFF00' : '1px solid rgba(255,255,255,0.1)',
             padding: '10px 20px',
             fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.1em',
             cursor: 'pointer', transition: 'all 0.3s ease'
@@ -92,9 +92,9 @@ export const ToolkitNetwork = () => {
             key={cat}
             onClick={() => setActiveCategory(cat)}
             style={{ 
-              backgroundColor: activeCategory === cat ? '#d9663f' : 'transparent',
+              backgroundColor: activeCategory === cat ? '#DBFF00' : 'transparent',
               color: activeCategory === cat ? '#000' : 'var(--text-muted)',
-              border: activeCategory === cat ? '1px solid #d9663f' : '1px solid rgba(255,255,255,0.1)',
+              border: activeCategory === cat ? '1px solid #DBFF00' : '1px solid rgba(255,255,255,0.1)',
               padding: '10px 20px',
               fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.1em',
               cursor: 'pointer', transition: 'all 0.3s ease'
@@ -170,7 +170,7 @@ export const ToolkitNetwork = () => {
           const count = SKILLS.filter(s => s.category === cat).length;
           return (
             <div key={cat} style={{ backgroundColor: '#020202', padding: '30px 20px', textAlign: 'center' }}>
-              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontStyle: 'italic', marginBottom: '10px', color: '#d9663f' }}>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontStyle: 'italic', marginBottom: '10px', color: '#DBFF00' }}>
                 {count}
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--text-dim)' }}>
